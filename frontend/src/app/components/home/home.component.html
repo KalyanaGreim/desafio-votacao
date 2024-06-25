@@ -1,0 +1,39 @@
+<form>
+  <div class="header">
+    <h2>Lista de Pautas</h2>
+    <div class="create-button">
+      <button routerLink="/create-pauta">Criar Nova Pauta</button>
+    </div>
+  </div>
+
+  <div class="pautas-list">
+    <ul>
+      <li *ngFor="let pauta of pautas" class="pauta-item">
+        <strong>Nome:</strong> {{ pauta.nome }}<br />
+        <strong>Descrição:</strong> {{ pauta.descricao }}<br />
+
+        <div *ngIf="!pauta.votacaoAberta && pauta.sessaoId" class="closed-vote">
+          <p>A votação para esta pauta está encerrada.</p>
+          <button (click)="exibirResultadoVotacao(pauta.id)">Exibir Resultado da Votação</button>
+          <div *ngIf="mostrarResultado">
+            <p>Votos para Sim: {{ resultadoVotos.Sim }}</p>
+            <p>Votos para Não: {{ resultadoVotos.Nao }}</p>
+          </div>
+        </div>
+
+        <div class="actions">
+          <div *ngIf="pauta.sessaoId && pauta.votacaoAberta">
+            <button (click)="irParaSessaoVotacao(pauta.id)">Ir para Votação em Andamento</button>
+          </div>
+          <div *ngIf="!pauta.sessaoId">
+            <label for="dataInicio">Data Início:</label>
+            <input type="datetime-local" [(ngModel)]="pauta.dataInicio" class="date-input"><br />
+            <label for="dataFim">Data Fim:</label>
+            <input type="datetime-local" [(ngModel)]="pauta.dataFim" class="date-input"><br />
+            <button (click)="iniciarVotacao(pauta)" class="start-button">Iniciar Votação</button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</form>

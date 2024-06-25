@@ -1,0 +1,50 @@
+<div class="create-pauta-container">
+  <h2>Criar Nova Pauta</h2>
+  <form (ngSubmit)="onSubmit()" #pautaForm="ngForm" class="pauta-form">
+    <div class="form-group">
+      <label for="nome">Nome da Pauta:</label>
+      <input
+        type="text"
+        id="nome"
+        required
+        [(ngModel)]="pauta.nome"
+        name="nome"
+        #nome="ngModel"
+        class="form-control"
+      />
+      <div *ngIf="nome.invalid && nome.touched" class="error">
+        Nome é obrigatório.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="descricao">Descrição da Pauta:</label>
+      <input
+        type="text"
+        id="descricao"
+        required
+        [(ngModel)]="pauta.descricao"
+        name="descricao"
+        #descricao="ngModel"
+        class="form-control"
+      />
+    </div>
+    <!-- Exemplo de campo adicional -->
+    <!-- <div class="form-group">
+      <label for="cpf">CPF:</label>
+      <input
+        type="text"
+        id="cpf"
+        required
+        [(ngModel)]="pauta.cpf"
+        name="cpf"
+        #cpf="ngModel"
+        class="form-control"
+        (blur)="validateCPF(cpf.value)"
+      />
+      <div *ngIf="cpfError" class="error">CPF inválido.</div>
+    </div> -->
+    <button type="submit" [disabled]="pautaForm.invalid" class="submit-button">
+      Criar Pauta
+    </button>
+  </form>
+</div>

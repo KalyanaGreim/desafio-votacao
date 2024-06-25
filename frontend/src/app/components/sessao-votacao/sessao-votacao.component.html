@@ -1,0 +1,19 @@
+<div class="votacao-pauta-container">
+  <h2>Votação da Pauta</h2>
+  <p>Nome: {{ pauta.nome }}</p>
+  <p>Descrição: {{ pauta.descricao }}</p>
+  <p>CPF do associado: <input type="text" [(ngModel)]="cpfAssociado" /></p>
+  <p>Nome do associado: <input type="text" [(ngModel)]="nomeAssociado" /></p>
+  <div class="radio-group">
+    <label>
+      <input type="radio" name="voto" [value]="true" [(ngModel)]="voto" /> Sim
+    </label>
+    <label>
+      <input type="radio" name="voto" [value]="false" [(ngModel)]="voto" /> Não
+    </label>
+  </div>
+  <button (click)="registrarVoto()">Registrar Voto</button>
+  <div class="note">
+    *Vote SIM para concorda e NÃO para não concorda com a pauta proposta.
+  </div>
+</div>

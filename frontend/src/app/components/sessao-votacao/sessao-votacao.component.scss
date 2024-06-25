@@ -1,0 +1,47 @@
+.votacao-pauta-container {
+  max-width: 600px;
+  margin: 0 auto;
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  p {
+    margin-bottom: 10px;
+  }
+
+  .radio-group {
+    margin-bottom: 20px;
+
+    label {
+      display: inline-block;
+      margin-right: 20px;
+
+      input[type="radio"] {
+        margin-right: 5px;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+
+  .note {
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
+  }
+}
