@@ -23,7 +23,7 @@
 
         <div class="actions">
           <div *ngIf="pauta.sessaoId && pauta.votacaoAberta">
-            <button (click)="irParaSessaoVotacao(pauta.id)">Ir para Votação em Andamento</button>
+            <button (click)="irParaSessaoVotacao(pauta.id)">Ir para Votação em Andamento -></button>
           </div>
           <div *ngIf="!pauta.sessaoId">
             <label for="dataInicio">Data Início:</label>
