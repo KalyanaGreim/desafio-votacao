@@ -8,5 +8,8 @@ public class VotoDTO {
     private Long pautaId;
     private Boolean voto;
     private String nome;
+
+    public VotoDTO(long l, String s, String associadoTeste, boolean b) {
+    }
 }
 
